@@ -1,0 +1,26 @@
+server:
+  port: 9903  #端口号冲突
+  jsp-servlet:
+    init-parameters:
+      development: true  #开启jsp的热部署
+spring:
+  profiles:
+    active: dev
+  mvc:
+    view:
+      prefix: /     #配置视图解析器
+      suffix: .jsp
+
+      #配置数据源
+  datasource:
+    type: org.apache.commons.dbcp.BasicDataSource  #指定连接池类型
+    driver-class-name: com.mysql.jdbc.Driver   #指定驱动
+    url: jdbc:mysql://localhost:3306/novel     #指定url
+    username: root    #用户名
+    password: root    #密码
+
+mybatis:
+  #起别名
+  type-aliases-package: com.baizhi.entity
+  #注册
+  mapper-locations: classpath:Mapper/*Mapper.xml
